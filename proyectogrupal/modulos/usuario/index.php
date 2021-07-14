@@ -10,8 +10,15 @@
   </head>
   <!--Creado por Hary-->
   <body>
+  <?php
+      require_once "../../includes/class_user.php";
+      $user_sistema = new Usuario();
+      $lista = $user_sistema->listar_usuarios();
+      //print_r("<pre>");
+      //print_r($lista);
+    ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="../../index.php"><img src="../../../img/logo.jpeg" weigth="80 "height="70"> </a>
+      <a class="navbar-brand" href="../../administrador/home.php"><img src="../../../img/logo.jpeg" weigth="80 "height="70"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon">   
            </span>
@@ -50,7 +57,7 @@
 
      <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-9 col-xl-9">
+            <div class="col-sm col-xl">
                 <div class="card">
                     <div class="card-header">  
                         Listado de usuarios
@@ -60,61 +67,33 @@
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Identificacion</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Herramientas</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Numero de Rol</th>
+                                <th colspan="5">Herramientas</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Cristhian Galvis</td>
-                                <td>Profesor</td>
-                                <td><a href="./editar.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Modificar</a>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                </td>
-            
-                              </tr>
-                              <tr>
-                                <th scope="row">2</th>
-                                <td>Paula Castiblanco</td>
-                                <td>Desarrollador</td>
-                                <td><a href="editar.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Modificar</a>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">3</th>
-                                <td>Viviana Vanegas</td>
-                                <td>Product Owner</td>
-                                <td><a href="./editar.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Modificar</a>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">4</th>
-                                <td>Ivan Quintero</td>
-                                <td>Scrum master</td>
-                                <td><a href="./editar.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Modificar</a>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">5</th>
-                                <td>Laura Linares</td>
-                                <td>Desarrollador</td>
-                                <td><a href="./editar.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Modificar</a>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">6</th>
-                                <td>Hary Zamudio</td>
-                                <td>Desarrollador</td>
-                                <td><a href="./editar.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Modificar</a>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                </td>
-                              </tr>
+                            <?php
+                              for ($x=0; $x < sizeof($lista); $x++) { 
+                            ?>
+                              <tr>   
+                  <td><?php echo $lista[$x]['id_usuario']?></td>
+                  <td><?php echo $lista[$x]['identificacion']?></td>
+                  <td><?php echo $lista[$x]['nombre']?></td>
+                  <td><?php echo $lista[$x]['apellido']?></td>
+                  <td><?php echo $lista[$x]['correo']?></td>
+                  <td><?php echo $lista[$x]['id_rol']?></td>
+                  <td>
+                  <a href="./editar.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Modificar</a>
+                    <button class="btn btn-danger">Eliminar</button>
+                  </td>
+                </tr>
+                <?php
+            }    
+                ?>
                             </tbody>
                           </table>
                     </div>

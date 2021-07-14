@@ -11,7 +11,7 @@
 <body>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="../../index.php"><img src="../../../img/logo.jpeg" weigth="80 "height="70"> </a>
+      <a class="navbar-brand" href="../../administrador/home.php"><img src="../../../img/logo.jpeg" weigth="80 "height="70"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon">   
            </span>
@@ -50,10 +50,10 @@
      <div class="container">
         <div class="row justify-content-center"> 
             <div class="col-sm-9 col-xl-9">
-              <div class="card carda">
-                <div class="card-header d-flex justify-content-between align-items-center bg-light">
+              <div class="card">
+                <div class="card-header">
                   Listado de Roles
-                  <a href="crear.php" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true"> Crear Roles</a>
+                  <a href="crear.php" class="btn btn-primary Materias" tabindex="-1" role="button" aria-disabled="true"> Crear Roles</a>
               </div>
                     <div class="card-body">
                         <table class="table">

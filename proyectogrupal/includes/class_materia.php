@@ -23,7 +23,7 @@ function guardar_materia($nombre_materia_form){
 
         ) ;
         $insert->execute($array_data_user);
-        return "La materia ha sido registrada exitosamente";
+        return;// "La materia ha sido registrada exitosamente";
     }
     function listar_materias(){
         $p_consulta = "SELECT * FROM tb_materias";
