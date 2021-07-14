@@ -51,4 +51,24 @@ function guardar_materia($nombre_materia_form){
         $respuesta=$update->execute($array_update);
         return $respuesta;
 }
+function eliminar_materia($id){
+    $query_delete ="DELETE FROM tb_materias WHERE id_materia=?";
+    $delete= $this->conexion->prepare($query_delete);
+    $array_delete=array($id);
+    $delete->execute($array_delete);
+    return "
+    <script>
+    Swal.fire(
+        'Materia Eliminado!',
+        'La materia ya no esta en la BD.',
+        'success'
+        )
+
+    setTimeout('redireccion()', 2000);
+    function redireccion(){
+        window.location = 'location:http://localhost:8080/proyectogrupal_/proyectogrupal/modulos/materias/index.php';
+    }
+    </script>
+    ";
+}
 }
